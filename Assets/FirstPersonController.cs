@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class FirstPersonController : MonoBehaviour
 {
     public float moveSpeed = 5f; 
