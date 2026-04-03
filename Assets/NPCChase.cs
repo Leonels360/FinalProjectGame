@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class NPCChase : MonoBehaviour
 {
     public Transform player; 
+    public TurnOnOff lightScript; 
     private NavMeshAgent agent;
 
     void Start()
@@ -17,21 +18,19 @@ public class NPCChase : MonoBehaviour
 
     void Update()
     {
-        if(player != null)
+        if(player != null && lightScript != null)
         {
             //give Unity a coordinate and it will move the capsule for me
-            agent.SetDestination(player.position); 
+            if(!(lightScript.isLightOn && Vector3.Distance(transform.position, player.position) < 5.0f)) 
+            {
+                agent.SetDestination(player.position); 
+
+            }
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            //need to make a game over. 
-            //using scene manager 
-            FindObjectOfType<GameManager>().GameOver();
-        }
-        
-    }
+
+
 }
+
+    

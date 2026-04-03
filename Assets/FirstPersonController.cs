@@ -23,6 +23,9 @@ public class FirstPersonController : MonoBehaviour
 
     void Update()
     {
+
+        if(Time.timeScale == 0 ) return; 
+        
         float moveX = Input.GetAxis("Horizontal") * moveSpeed; 
 
         float moveZ = Input.GetAxis("Vertical") * moveSpeed; 

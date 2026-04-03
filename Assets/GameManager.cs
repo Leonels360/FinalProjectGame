@@ -5,26 +5,36 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject gameOverPanel; 
-    public GameObject winPanel; 
+    public GameObject winPanel;
 
-    public void GameOver()
+
+    void Start()
     {
-        gameOverPanel.SetActive(true); 
+        Time.timeScale = 1f; 
 
-        Time.timeScale = 0f;  
+        if(gameOverPanel) gameOverPanel.SetActive(false); 
+        if(winPanel) winPanel.SetActive(false); 
+
+
+    
+    } 
+
+    public void EndGame(bool won)
+    {
+        Time.timeScale = 0f; 
+
+        if(won)
+            winPanel.SetActive(true); 
+        else
+            gameOverPanel.SetActive(true); 
+
     }
 
-
-    public void Win()
-    {
-        winPanel.SetActive(true); 
-        Time.timeScale  -= 0f; 
-    }
 
     public void Restart()
     {
         Time.timeScale = 1f; 
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
-    
 }
