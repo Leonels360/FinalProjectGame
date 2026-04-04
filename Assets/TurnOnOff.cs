@@ -15,7 +15,8 @@ public class TurnOnOff : MonoBehaviour
     private bool playerNear = false; 
     private float timer; 
 
-    void start()
+    //void start() -orginal way it was
+    void Start()
     {
         timer = Random.Range(3.0f, 7.0f); 
     }
@@ -36,7 +37,7 @@ public class TurnOnOff : MonoBehaviour
 
          if(playerNear && isLightOn)
             {
-                agentStop.isStopped = true; 
+                agentStop.isStopped = true; //-not sure if necessary
 
                 Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position; 
 
@@ -61,7 +62,7 @@ public class TurnOnOff : MonoBehaviour
         }
     }
 
-    private void OnTriggExit(Collider other)
+    private void OnTriggerExit(Collider other)  //was OnTriggExit, wrong
     {
         if(other.CompareTag("Player"))
         {

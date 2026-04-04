@@ -19,6 +19,9 @@ public class FirstPersonController : MonoBehaviour
 
         cameraTransform.parent = transform; 
 
+        //this is just to not have a visible mouse
+        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.visible = false;
     }
 
     void Update()
@@ -55,4 +58,4 @@ public class FirstPersonController : MonoBehaviour
     
 }
     
-
+////
