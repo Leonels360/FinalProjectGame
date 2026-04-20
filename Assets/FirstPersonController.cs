@@ -28,6 +28,11 @@ public class FirstPersonController : MonoBehaviour
     {
 
         if(Time.timeScale == 0 ) return; 
+
+        if (Input.GetKeyDown(KeyCode.Space))
+    {
+        transform.Rotate(Vector3.up * 180f);
+    }
         
         float moveX = Input.GetAxis("Horizontal") * moveSpeed; 
 

@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 8943978013055023425}
   - component: {fileID: 1957431731430064533}
   - component: {fileID: 7551177003487297875}
-  - component: {fileID: 6528916527825262354}
+  - component: {fileID: 6732650595247564865}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -225,8 +225,8 @@ MonoBehaviour:
   targetLight: {fileID: 4500066253109045181}
   agentStop: {fileID: 0}
   isLightOn: 1
---- !u!65 &6528916527825262354
-BoxCollider:
+--- !u!135 &6732650595247564865
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -244,5 +244,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.25528878, y: 3.8754716, z: 1.6222663}
+  m_Radius: 1.9377358
   m_Center: {x: -0.00000029057264, y: 1.9321969, z: 0.7680237}
