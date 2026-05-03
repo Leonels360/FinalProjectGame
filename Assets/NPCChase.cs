@@ -9,8 +9,8 @@ public class NPCChase : MonoBehaviour
     public TurnOnOff lightScript; 
     private NavMeshAgent agent;
 
-    public float epsilon2 = 5.0f; 
-    public float fleeDistance = 8.0f;
+    public float epsilon2 = 10.0f; 
+    public float fleeDistance = 15.0f;
 
     void Start()
     {

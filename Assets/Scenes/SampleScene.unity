@@ -285,7 +285,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 6
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1493,7 +1493,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &705059603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1737,6 +1737,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842876950}
   m_CullTransparentMesh: 1
+--- !u!1001 &856666497
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6034365384147383889, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+      propertyPath: m_Name
+      value: FlashLight_Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464519661172135896, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464519661172135896, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464519661172135896, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464519661172135896, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464519661172135896, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464519661172135896, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464519661172135896, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464519661172135896, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464519661172135896, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464519661172135896, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
 --- !u!1001 &925111680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1798,6 +1855,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63fcd59d5d2413f3e9f0ee00caf03e20, type: 3}
+--- !u!1 &949108126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 949108128}
+  - component: {fileID: 949108127}
+  m_Layer: 0
+  m_Name: Flashlight Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &949108127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949108126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d44003c58a4514e18f4d2062819025b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashlightPrefab: {fileID: 6034365384147383889, guid: 79d21f342bcb73a8d8cddfff971abe77, type: 3}
+  range: 50
+--- !u!4 &949108128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949108126}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1041705435
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,6 +2899,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street Light (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6732650595247564865, guid: 63fcd59d5d2413f3e9f0ee00caf03e20, type: 3}
+      propertyPath: m_Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732650595247564865, guid: 63fcd59d5d2413f3e9f0ee00caf03e20, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732650595247564865, guid: 63fcd59d5d2413f3e9f0ee00caf03e20, type: 3}
+      propertyPath: m_Center.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732650595247564865, guid: 63fcd59d5d2413f3e9f0ee00caf03e20, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7551177003487297875, guid: 63fcd59d5d2413f3e9f0ee00caf03e20, type: 3}
       propertyPath: agentStop
       value: 
@@ -2937,3 +3056,5 @@ SceneRoots:
   - {fileID: 1226080708}
   - {fileID: 331550790}
   - {fileID: 1841619054}
+  - {fileID: 949108128}
+  - {fileID: 856666497}
