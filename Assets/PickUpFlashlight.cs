@@ -6,12 +6,15 @@ public class PickUpFlashlight : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        Debug.Log("Flashlight touched by: " + other.name + " with tag: " + other.tag);
         if(other.CompareTag("Player"))
         {
-            Debug.Log("Picked up flashlight"); 
+            FlashLightController controller = other.GetComponent<FlashLightController>(); 
 
-            Destroy(gameObject);
+            if(controller != null)
+            {
+                controller.ObtainFlashLight(); 
+                Destroy(gameObject); 
+            }
         }
     }
 
