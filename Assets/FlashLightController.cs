@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlashLightController : MonoBehaviour
 {
@@ -12,14 +13,27 @@ public class FlashLightController : MonoBehaviour
 
     private float currentBattery; 
     private bool hasFlashLight = false; 
-    private bool isDrained = false; 
+    private bool isDrained = false;
 
+    public Slider batterySlider;
+    public GameObject batteryUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentBattery = maxBattery; 
+        currentBattery = maxBattery;
 
-        if(flashlightBeam != null)
+        if (batteryUI != null)
+        {
+            batteryUI.SetActive(false);
+        }
+
+        if (batterySlider != null)
+        {
+            batterySlider.maxValue = maxBattery;
+            batterySlider.value = currentBattery;
+        }
+
+        if (flashlightBeam != null)
             flashlightBeam.SetActive(false); 
         
 
@@ -38,13 +52,22 @@ public class FlashLightController : MonoBehaviour
 
         if(Input.GetKey(KeyCode.X))
         {
-            flashlightBeam.SetActive(true); 
+            flashlightBeam.SetActive(true);
+            if (batteryUI != null)
+            {
+                batteryUI.SetActive(true);
+            }
             RunBattery(); 
             FlashLightRay(); 
         }
         else
         {
-            flashlightBeam.SetActive(false); 
+            flashlightBeam.SetActive(false);
+
+            if (batteryUI != null)
+            {
+                batteryUI.SetActive(false);
+            }
         }
         
     }
@@ -65,9 +88,14 @@ public class FlashLightController : MonoBehaviour
 
     void RunBattery()
     {
-        currentBattery -= Time.deltaTime; 
+        currentBattery -= Time.deltaTime;
 
-        if(currentBattery <= 0)
+        if (batterySlider != null)
+        {
+            batterySlider.value = currentBattery;
+        }
+
+        if (currentBattery <= 0)
         {
             currentBattery = 0; 
             isDrained = true; 
