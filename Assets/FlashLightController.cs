@@ -1,9 +1,14 @@
+using UnityEditor;
 using UnityEngine;
 
 public class FlashLightController : MonoBehaviour
 {
     public GameObject flashlightBeam; 
     public float maxBattery = 10f; 
+
+    public Transform camTransform; 
+
+    public float flashRange = 10f; 
 
     private float currentBattery; 
     private bool hasFlashLight = false; 
@@ -17,6 +22,12 @@ public class FlashLightController : MonoBehaviour
         if(flashlightBeam != null)
             flashlightBeam.SetActive(false); 
         
+
+        if(camTransform == null)
+        {
+            camTransform = Camera.main.transform; 
+            
+        }
     }
 
     // Update is called once per frame
@@ -29,12 +40,27 @@ public class FlashLightController : MonoBehaviour
         {
             flashlightBeam.SetActive(true); 
             RunBattery(); 
+            FlashLightRay(); 
         }
         else
         {
             flashlightBeam.SetActive(false); 
         }
         
+    }
+
+    void FlashLightRay()
+    {
+        RaycastHit hit; 
+
+        if(Physics.Raycast(camTransform.position, camTransform.forward, out hit,flashRange))
+        {
+            NPCChase npc = hit.collider.GetComponent<NPCChase>(); 
+            if(npc != null)
+            {
+                npc.HitByFlashlight(); 
+            }
+        }
     }
 
     void RunBattery()

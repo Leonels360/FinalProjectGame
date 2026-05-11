@@ -9,13 +9,32 @@ public class NPCChase : MonoBehaviour
     public TurnOnOff lightScript; 
     private NavMeshAgent agent;
 
+    public float minSpeed = 2.0f; 
+    public float maxSpeed = 15.0f; 
+
+    public float accelerate = 0.1f; 
+
+    private float currentSpeed; 
+
     public float epsilon2 = 10.0f; 
     public float fleeDistance = 15.0f;
+
+    private float stunTimer  = 0f; 
+    private bool isStunned = false; 
+
+    public void HitByFlashlight()
+    {
+        isStunned = true; 
+        stunTimer = 0.3f; 
+    }
+
 
     void Start()
     {
 
         agent = GetComponent<NavMeshAgent>(); 
+        currentSpeed = minSpeed; 
+        agent.speed = currentSpeed; 
 
     
     }
@@ -28,6 +47,29 @@ public class NPCChase : MonoBehaviour
             return; 
             
         }
+
+        if(isStunned)
+        {
+            agent.isStopped = true; 
+            stunTimer -= Time.deltaTime; 
+
+            if(stunTimer <= 0)
+            {
+                isStunned = false; 
+            }
+            
+            return; 
+            
+
+        }
+            
+
+            if(currentSpeed < maxSpeed)
+            {
+                currentSpeed += accelerate * Time.deltaTime; 
+                agent.speed  = currentSpeed; 
+            }
+        
 
         Collider[] hitColliders = Physics.OverlapSphere(player.position, 1.0f);
         TurnOnOff activeLight = null;
