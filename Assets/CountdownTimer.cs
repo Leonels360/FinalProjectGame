@@ -8,6 +8,8 @@ public class CountdownTimer : MonoBehaviour
     public TextMeshProUGUI timerText;
 
     public float warningTime = 10f;
+
+    public float TimeTaken => 60f - timeRemaining;
     private bool timerRunning = true;
 
 

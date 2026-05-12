@@ -6,7 +6,7 @@ public class Goal : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            FindObjectOfType<GameManager>().EndGame(true); 
+            FindFirstObjectByType<GameManager>().EndGame(true);
         }
 
         
