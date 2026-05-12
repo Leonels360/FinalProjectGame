@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FlashLightController : MonoBehaviour
-{
+{   
+    public GameObject flashlightIcon;//to add ui icon of flashlight
     public GameObject flashlightBeam; 
     public float maxBattery = 10f; 
 
@@ -21,6 +22,11 @@ public class FlashLightController : MonoBehaviour
     void Start()
     {
         currentBattery = maxBattery;
+        //turns off icon by default
+        if (flashlightIcon != null)
+        {
+            flashlightIcon.SetActive(false);
+        }
 
         if (batteryUI != null)
         {
@@ -100,7 +106,14 @@ public class FlashLightController : MonoBehaviour
             currentBattery = 0; 
             isDrained = true; 
             flashlightBeam.SetActive(false); 
+            if (flashlightIcon != null)//hide icon when battery is dead
+            {
+                flashlightIcon.SetActive(false);
+            }
             Debug.Log("flashlight battery is dead."); 
+
+
+            
 
 
         }
@@ -109,6 +122,10 @@ public class FlashLightController : MonoBehaviour
     public void ObtainFlashLight()
     {
         hasFlashLight = true; 
+        //activates icon
+        if (flashlightIcon != null)
+            flashlightIcon.SetActive(true);
+
         Debug.Log("Player is using flashlgiht."); 
     }
 }
