@@ -47,4 +47,12 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene("StartScreen"); // make sure this matches your scene name exactly
+    }
 }
