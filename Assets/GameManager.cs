@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel; 
     public GameObject winPanel;
 
+    public GameObject timerUI;     
+    public GameObject flashlightIcon;
+
 
     void Start()
     {
@@ -22,6 +25,13 @@ public class GameManager : MonoBehaviour
     public void EndGame(bool won)
     {
         Time.timeScale = 0f; 
+        //makes the cursor visible again
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        //hide UI on game end
+        if (timerUI != null) timerUI.SetActive(false);
+        if (flashlightIcon != null) flashlightIcon.SetActive(false);
+
 
         if(won)
             winPanel.SetActive(true); 
